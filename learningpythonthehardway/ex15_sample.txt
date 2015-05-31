@@ -1,0 +1,4 @@
+This is a sample text file that I'll be reading using a python script later on.
+I guess if the script works, then we may see all the text I'm currently typing n the 'stdout', aka the standard output (..)
+
+Cheers ;p

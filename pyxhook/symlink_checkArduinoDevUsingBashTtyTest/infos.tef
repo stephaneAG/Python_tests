@@ -1,0 +1,22 @@
+# R: to write stuff to an uC ( ex: Arduino ) connected to /dev/ttyUSB0 ( that 'd print stuff when using "screen /dev/ttyUSB0 9600" for ex )
+#    we can make use of the following commands, & bypass the fact that the Arduino resets the serial conn after it's opening for the 1st time
+# in other words, ' echo "input string" > /dev/ttyUSB0 ' in bash will reset Arduino and send "input string" immediately
+# Arduino needs time to init, and is not quick enough to receive this string. ' cat /dev/ttyUSB0 ' will reset Arduino too
+
+# solution:
+# A: open /dev/ttyUSB0 by redirecting /dev/ttyUSB0 to file description 3
+exec 3<> /dev/ttyUSB0
+
+# B: wait for Arduino's initialization
+sleep 1
+
+# C: communicate with Arduino -> write to it
+echo "0/0/128/128/128/128/1/1/1/0/1/0/1/0/1/0/1/0/1/0" >&3
+
+# D: communicate with Arduino -> read from it
+cat <&3
+
+# E: close /dev/ttyUSB0
+exec 3>&-
+
+# Nb: as of 16/01/2015, no luck with the full-bash program, but I got a qick & simple Python script to do the work

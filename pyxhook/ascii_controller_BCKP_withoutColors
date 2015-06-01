@@ -1,0 +1,25 @@
+#                      #1  #2  #3    #4    #5    #6
+# . ./ascii_controller "0" "0" "128" "128" "128" "128"
+
+echo -e "
+
+  [<key>] = keyboard keys mapped to Xbox Controller S 
+                  
+                  
+                  
+            [X]            LTRIG  |_____________                        _____________| RTRIG              [N]
+                               $1  |             \                      /             | $2
+                                                 \                    /
+      [D,G,V,F] LJOY X$5 | Y$3  |              _\___            ___/_              | A                  [KEYPAD DOWN]
+            [R]           SELECT  |             /-----\__________/-----\             | Y                  [KEYPAD UP]
+                                  |___________.'___                   __'.___________| X                  [KEYPAD LEFT]
+            [O]               UP  |          /     \                 /    \          | B                  [KEYPAD RIGHT]
+            [P]             DOWN  |         '       \               /      '         | 
+                            LEFT  |        /\                              /\        | RJOY X$6 | Y$4   
+                           RIGHT  |       /  '.          ____            .'  \       | SELECT
+                                  |      /     '._______/ __ \_________.'     \      | 
+            [U]             BACK  |     /       .........'  '...........       \     | WHITE              
+            [I]            START  |     '.    .'                        '.    .'     | BLACK
+                                          '-.'                            '.-'         
+                  
+"

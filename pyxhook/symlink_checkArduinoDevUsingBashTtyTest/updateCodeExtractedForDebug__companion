@@ -1,0 +1,50 @@
+# the following were extracted for debug purposes
+state_ltrig=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[53]=" | cut -d "=" -f2)
+  state_rtrig=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[57]=" | cut -d "=" -f2)
+  state_ljoyUp=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[41]=" | cut -d "=" -f2)
+  state_ljoyDown=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[55]=" | cut -d "=" -f2)
+  state_ljoyLeft=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[40]=" | cut -d "=" -f2)
+  state_ljoyRight=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[42]=" | cut -d "=" -f2)
+  state_ljoySelect=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[27]=" | cut -d "=" -f2)
+  state_btnY=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[111]=" | cut -d "=" -f2)
+  state_btnA=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[116]=" | cut -d "=" -f2)
+  state_btnX=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[113]=" | cut -d "=" -f2)
+  state_btnB=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[114]=" | cut -d "=" -f2)
+  state_btnBack=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[30]=" | cut -d "=" -f2)
+  state_btnStart=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[31]=" | cut -d "=" -f2)
+  state_keypadUp=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[32]=" | cut -d "=" -f2)
+  state_keypadDown=$(xinput query-state "AT Translated Set 2 keyboard" | grep "key\[33]=" | cut -d "=" -f2)
+
+  # depending on up or down, adjust the corresponding chunk
+  # triggers
+  if [[ "$state_ltrig" == "down" ]]; then read_chunk_C1="1"; else read_chunk_C1="0"; fi
+  if [[ "$state_rtrig" == "down" ]]; then read_chunk_H1="1"; else read_chunk_H1="0"; fi
+  # left joystick Y - resting voltage 2.3V on 4.6V
+  if [[ "$state_ljoyUp" == "down" && "$state_ljoyDown" == "up" ]]; then 
+    read_chunk_C2="255"; # go upward
+  else if [[ "$state_ljoyDown" == "down" && "$state_ljoyUp" == "up" ]]; then
+    read_chunk_C2="0"; # go backward
+  else
+    read_chunk_C2="128"; # stay still
+  fi
+  # left joystick X - resting voltage 2.3V on 4.6V
+  if [[ "$state_ljoyLeft" == "down" && "$state_ljoyRight" == "up" ]]; then 
+    read_chunk_C3="0"; # go left
+  else if [[ "$state_ljoyRight" == "down" && "$state_ljoyLeft" == "up" ]]; then
+    read_chunk_C3="255"; # go right
+  else
+    read_chunk_C3="128"; # stay still
+  fi
+  # left joystick select - HIGH by default ( 4.4V on 4.6V )
+  if [[ "$state_ljoySelect" == "down" ]]; then read_chunk_C4="0"; else read_chunk_C4="1"; fi
+  # btns Y,A,X,B
+  if [[ "$state_btnY" == "down" ]]; then read_chunk_H7="1"; else read_chunk_H7="0"; fi
+  if [[ "$state_btnA" == "down" ]]; then read_chunk_H8="1"; else read_chunk_H8="0"; fi
+  if [[ "$state_btnX" == "down" ]]; then read_chunk_H9="1"; else read_chunk_H9="0"; fi
+  if [[ "$state_btnB" == "down" ]]; then read_chunk_H10="1"; else read_chunk_H10="0"; fi
+  # btns back & start - HIGH by default ( 4.4V on 4.6V )
+  if [[ "$state_btnBack" == "down" ]]; then read_chunk_C5="0"; else read_chunk_C5="1"; fi
+  if [[ "$state_btnStart" == "down" ]]; then read_chunk_C6="0"; else read_chunk_C6="1"; fi
+  # keypad up & down - HIGH by default ( 4.4V on 4.6V )
+  if [[ "$state_keypadUp" == "down" ]]; then read_chunk_C7="0"; else read_chunk_C8="1"; fi
+  if [[ "$state_keypadDown" == "down" ]]; then read_chunk_C8="0"; else read_chunk_C8="1"; fi

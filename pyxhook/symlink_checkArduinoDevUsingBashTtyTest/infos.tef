@@ -1,3 +1,6 @@
+# add:
+- stuff that was located where the "checkPythonKeysLoggerTestImplm" present in the current dir ponited to
+
 # R: to write stuff to an uC ( ex: Arduino ) connected to /dev/ttyUSB0 ( that 'd print stuff when using "screen /dev/ttyUSB0 9600" for ex )
 #    we can make use of the following commands, & bypass the fact that the Arduino resets the serial conn after it's opening for the 1st time
 # in other words, ' echo "input string" > /dev/ttyUSB0 ' in bash will reset Arduino and send "input string" immediately

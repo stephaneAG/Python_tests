@@ -1,0 +1,26 @@
+# R: install:
+#            git clone https://github.com/Kareeeeem/jpglitch.git
+#            cd jpglitch/
+#            sudo python setup.py install
+#
+#    usage:
+#          jpglitch Kitto.jpg
+#
+#    optional parameters:
+#                        -a, --amount => determines the hex value used to glitch original data
+#                                        value from 1 to 99
+#                        -s,--seed    => determines where in the image data the glitch starts
+#                                        value from 1 to 99
+#                        -i,--iterations =>determines how many times glitche is applied
+#                                           value from 1 to 115
+#                        --jpg           => output an "unstable" .jpg instead of a .png
+#                        -o,--output     => specify an output filename (def: "<name>_glitched.png" )
+#    when no params are passed, random values from allowed ranges are generated & used
+#
+#    usage with a lot of args:
+#                             jpglitch -a 70 -s 4 -i 31 -o garbled_mess.jpg Kitto.jpg
+#
+#
+#    ideas ?
+#
+#           -> it'd be nice to have a script glitching frames of a video ( & why not combine these with glitches in the audio layer, if present ? ;p )

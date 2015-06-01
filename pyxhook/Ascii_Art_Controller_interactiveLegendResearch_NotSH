@@ -1,0 +1,100 @@
+
+level 1:
+  R: accept arguments: - controls states ( up || down )
+                       - analog controls values
+  => the above may be received as "ready to be used" strings of chars that includes the correct color codes
+  
+level 2:
+  use the above in a "lenged" controller mapping ascii art visual  
+         
+         
+         
+         
+            _____            _____
+           /-----\__________/-----\
+         .'                        '.
+        /                            \
+       '                              '
+      /\                              /\
+     /  '.          ____            .'  \
+    /     '._______/ __ \_________.'     \
+   /       .........'  '...........       \
+   '.    .'                        '.    .'
+     '-.'                            '.-'
+         
+         
+         
+         
+                  
+                  
+                  
+                LTRIG  _____________                        _____________  RTRIG
+                  255               \                      /                 128
+                                     \                    /
+                                     _\___            ___/_                
+       LJOY X0 | Y128               /-----\__________/-----\               A
+                       ___________.'___                   __'.___________  Y
+                   UP            /     \                 /    \            X
+                 DOWN           '       \               /      '           B
+                 LEFT          /\                              /\          
+                RIGHT         /  '.          ____            .'  \         RJOY X255 | Y255
+                             /     '._______/ __ \_________.'     \        
+                 BACK       /       .........'  '...........       \       WHITE
+                START       '.    .'                        '.    .'       BLACK
+                              '-.'                            '.-'         
+                  
+                  
+                  
+                  
+                                 
+         
+         
+         
+         
+         
+         
+         triggers fully on               triggers half-pressed              triggers fully off
+         
+          ____        ____                  ----        ----                 ----        ----
+         /----        ----\                /----        ----\               /____        ____\
+         
+         
+         
+         
+           ___
+         .'   '.
+         |     |
+         '-___-'
+         
+         
+         
+         
+          _____
+        .' ___ '.
+      .' .'   '. '.
+      |  |     |  |
+      '. '-___-' .'
+        '._____.'
+        
+        
+
+         
+          _____
+        .' ___ '.
+      .' .'   '. '.
+      |  |     |  |
+      |  '-___-'  |
+      '.         .'
+        '._____.' 
+        
+        
+        
+      
+         
+          _____                      _____
+        .' ___ '.                  .'     '.
+      .' .'   '. '.              .'   ___   '.
+      |  |     |  |              |  .'   '.  |
+      |  '-___-'  |              |  |     |  |
+      '.         .'              '. '.___.' .'
+        '._____.'                  '._____.'

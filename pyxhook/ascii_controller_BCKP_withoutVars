@@ -1,0 +1,22 @@
+echo -e "
+
+  [<key>] = keyboard keys mapped to Xbox Controller S 
+                  
+                  
+                  
+        [X]            LTRIG  |_____________                        _____________| RTRIG              [N]
+                         255  |             \                      /             | 128
+                                             \                    /
+  [D,G,V,F]   LJOY X0 | Y128  |              _\___            ___/_              | A                  [KEYPAD DOWN]
+        [R]           SELECT  |             /-----\__________/-----\             | Y                  [KEYPAD UP]
+                              |___________.'___                   __'.___________| X                  [KEYPAD LEFT]
+        [O]               UP  |          /     \                 /    \          | B                  [KEYPAD RIGHT]
+        [P]             DOWN  |         '       \               /      '         | 
+                        LEFT  |        /\                              /\        | RJOY X255 | Y255   
+                       RIGHT  |       /  '.          ____            .'  \       | SELECT
+                              |      /     '._______/ __ \_________.'     \      | 
+        [U]             BACK  |     /       .........'  '...........       \     | WHITE              
+        [I]            START  |     '.    .'                        '.    .'     | BLACK
+                                      '-.'                            '.-'         
+                  
+"

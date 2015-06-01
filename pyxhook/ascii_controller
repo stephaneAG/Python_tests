@@ -1,0 +1,46 @@
+#                      #1  #2  #3    #4    #5    #6
+#   ./ascii_controller "0" "0" "128" "128" "128" "128" "1" "1" "1" "0" "1" "0" "1" "0" "1" "0" "1" "0" "1" "0" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[7m" "\e[27m" "\e[7m" "\e[7m"
+
+# Y/A/X/B buttons colors
+# R: simply inverted when pressed
+col_btnY_up="\e[33m"
+col_btnY_down="$col_reverse$col_btnY_up"
+col_btnA_up="\e[31m"
+col_btnA_down="$col_reverse$col_btnA_up"
+col_btnX_up="\e[34m"
+col_btnX_down="$col_reverse$col_btnX_up"
+col_btnB_up="\e[37m"
+col_btnB_down="${col_reverse}${col_btnB_up}"
+
+colf_default="\e[39m"
+colb_default="\e[49m"
+col_reverse="\e[7m"
+col_reverse_reset="\e[27m"
+
+col_unirst="\e[0m$colf_default$colb_default"
+
+echo -e "
+
+  [<key>] = keyboard keys mapped to Xbox Controller S via serial connection to the uC/Arduino
+                  
+                  
+                  
+            [X]            ${21}LTRIG\e[39m\e[27m  |_____________                        _____________| ${22}RTRIG\e[39m\e[27m              [N]
+                               $1  |             \                      /             | $2
+                                                 \                    /
+      [D,G,V,F] ${29}LJOY\e[39m\e[27m ${25}X\e[39m\e[27m$5 | ${23}Y\e[39m\e[27m$3  |              _\___            ___/_              | ${32}\e[33mY\e[39m\e[27m                  [KEYPAD UP]
+            [R]           ${27}SELECT\e[39m\e[27m  |             /-----\__________/-----\             | ${34}\e[32mA\e[39m\e[27m                  [KEYPAD DOWN]
+                                  |___________.'___                   __'.___________| ${36}\e[34mX\e[39m\e[27m                  [KEYPAD LEFT]
+            [O]               ${31}UP\e[39m\e[27m  |          /     \                 /    \          | ${38}\e[31mB\e[39m\e[27m                  [KEYPAD RIGHT]
+            [P]             ${33}DOWN\e[39m\e[27m  |         '       \               /      '         | 
+                            ${35}LEFT\e[39m\e[27m  |        /\                              /\        | ${30}RJOY\e[39m\e[27m ${26}X\e[39m\e[27m$6 | ${24}Y\e[39m\e[27m$4   
+                           ${37}RIGHT\e[39m\e[27m  |       /  '.          ____            .'  \       | ${28}SELECT\e[39m\e[27m
+                                  |      /     '._______/ __ \_________.'     \      | 
+            [U]             ${39}BACK\e[39m\e[27m  |     /       .........'  '...........       \     | \e[7m${40}WHITE\e[39m\e[27m
+            [I]            ${41}START\e[39m\e[27m  |     '.    .'                        '.    .'     | ${42}BLACK\e[39m\e[27m
+                                          '-.'                            '.-'         
+                  
+"
+# \e[32mB\e[39m => original B
+# \e[7m\e[32mB\e[39m\e[27m => black text on green background
+# \e[42m\e[37mB\e[39m\e[49m => white text on green background ==> not readable at all

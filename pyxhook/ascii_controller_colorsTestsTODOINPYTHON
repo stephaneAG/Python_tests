@@ -1,0 +1,42 @@
+# color sets using tput
+COLF_NORM="$(tput setaf 9)"
+COLF_BLACK="$(tput setaf 0)"
+COLF_RED="$(tput setaf 1)"
+COLF_GREEN="$(tput setaf 2)"
+COLF_YELLOW="$(tput setaf 3)"
+COLF_BLUE="$(tput setaf 4)"
+COLF_WHITE="$(tput setaf 7)"
+
+COLB_NORM="$(tput setab 9)"
+COLB_RED="$(tput setab 1)"
+COLB_GREEN="$(tput setab 2)"
+COLB_YELLOW="$(tput setab 3)"
+COLB_BLUE="$(tput setab 4)"
+
+# Y,A,X,B buttons colors for states
+COL_BTN_Y_UP="${COLF_YELLOW}"
+COL_BTN_Y_DOWN="${COLB_YELLOW}"
+COL_BTN_A_UP="${COLF_RED}"
+COL_BTN_A_DOWN="${COLB_RED}"
+COL_BTN_X_UP="${COLF_BLUE}"
+COL_BTN_X_DOWN="${COLB_BLUE}"
+COL_BTN_B_UP="${COLF_GREEN}"
+COL_BTN_B_DOWN="${COLB_GREEN}"
+
+COL_RST="$(tput sgr0)"
+
+#echo "It's ${COLF_RED}red${COLF_NORM} and ${COLF_GREEN}green${COLF_NORM}"
+#echo "Or ${COLB_RED}or${COLB_NORM} maybe ${COLB_GREEN}like${COLB_NORM} this ?"
+
+#echo "${COL_BTN_Y_UP}Y${COL_RST}    ${COL_BTN_A_UP}A${COL_RST}    ${COL_BTN_X_UP}X${COL_RST}    ${COL_BTN_X_UP}B${COL_RST}"
+#echo "${COL_BTN_Y_DOWN}Y${COL_RST}    ${COL_BTN_A_DOWN}A${COL_RST}    ${COL_BTN_X_DOWN}X${COL_RST}    ${COL_BTN_B_DOWN}B${COL_RST}"
+
+
+
+# color sets using \e
+col_reverse=$(echo -e "\e[7m")
+col_reverse_rst=$(echo -e "\e[27m")
+
+# specific backgrounds 
+
+#echo "${col_reverse}WHITE${col_reverse_rst} button default"

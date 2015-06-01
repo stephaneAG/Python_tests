@@ -1,0 +1,35 @@
+# R: some of the python executable present in the current directory have the following purpose(s)
+
+# example.py  -> "official" pyxhook documentation example => handles keydown events in a loop & event key code parsing
+
+# ./example2.py -> example found on Stack Overflow => executable ( ./<script_name>" ) that print a msg on speficic key up events, uses key constants instead of key codes
+
+./arduino_companion.py -> wip script to interface an arduino quite easily ( goal ? play super mario 64 emulated on an original xbox through an Xbox Controller S remote hardware hack from the terminal ;p )
+
+
+# ======== Xbox Controller S ========
+# The following is a pin mapping for the quick POC "breakout board"
+
+  == breakout board pins ==
+  
+        Left Trigger    <=  C1 H1  => Right Trigger
+        Left Joystick Y <=  C2 H2  => Right Joystick Y
+        Left Joystick X <=  C3 H3  => Right Joystick X
+   Left Joystick Select <=  C4 H4  => Right Joystick Select
+            Back Button <=  C5 H5  => Black Button
+           Start Button <=  C6 H6  => White Button
+              Keypad Up <=  C7 H7  => Button Y
+            Keypad Down <=  C8 H8  => Button A 
+            Keypad Left <=  C9 H9  => Button X
+           Keypad Right <= C10 H10 => Button B
+             Keypad Gnd <= C11 H11 => Buttons +V
+        Rumble motor +V <= C12 H12 => +5V ( actually, 4.6~4.7V from the controller peripherals slots HUB)
+       Rumble motor Gnd <= C13 H13 => Gnd
+  
+  
+  == controller pin configuration ==
+  
+  -------------------- element(s) ----------- --------|- resting voltage -|- high state voltage -|- low state voltage -|-- type --|- note -
+  Triggers, Y/A/X/B, White, Black                     |     LOW / 0.0V    |      HIGH / 4.6V     |      LOW / 0.0V     |  digital | +V provided on H11/Buttons +V
+  Joysticks X,Y                                       |        2.3V       |      HIGH / 4.6V     |      LOW / 0.0V     |   analog | PWM to for 0.0V > full left, 4.6V > full right
+  Joystick Select, Back, Start, Up, Down, Left, Right |    HIGH / 4.4V    |       LOW / 0.0V     |     HIGH / 4.4V     |  digital | Gnd provided on H11/Keypad Gnd

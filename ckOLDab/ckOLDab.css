@@ -1,0 +1,26 @@
+/* ckOLDab RPi print server stylesheet */
+
+div.company-title{
+	margin: 0 auto;
+}
+
+div.app-title{
+	margin: 0 auto;
+}
+
+div.server-infos{
+	margin: 0 auto;
+}
+
+li.file-t-dl{
+	
+}
+
+div.footer{
+	margin: 0 auto;
+	color: gray;
+}
+
+a{
+	text-decoration: none;
+}

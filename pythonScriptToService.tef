@@ -1,0 +1,33 @@
+## R: BELOW STUFF IS KEPT HERE AS REMINDER AND IS /!\ NOT YET TESTED /!\ !!
+
+# assume we have a script, supposed t orun in a loop, do stg useful & maybe create some log
+# we can start it from the cli using:
+python thescript.py
+# the above 'd run until being cancelled
+
+# to have such script running even after detaching from console, to be more service-like, we can use
+nohup python thescript.py &
+# the above 'd detach the process from current console & 'd be running even after logging off
+# also, stopping such a script 'd mean search for it's PID
+ps -Af | grep thescript
+# & then kill it
+# good solution for some time, but 'd require some startup scripts to be more confortable
+
+# zdaemon script can come here handy, and works with any script, not only python
+zdaemon -p "python thescript.py" -z /dir/to/run/at/ -d
+zdaemon > start
+zdaemon > status
+zdaemon > quit
+# here we repared zdaemon to start thescript.py in dedicated directory & then start it via interactive console
+# if we were to check, it actually runs
+ps -Af | grep thescript | grep -v grep
+# we can stop the script in the same manner as we started it (using interactive console )
+zdaemon -p "python thescript.py" -z /dir/to/run/at/ -d
+zdaemon > stop
+
+# interactive console may be nice, but it can be handy to have single calls do whatever we want
+zdaemon -p "python loopydoopy.py" -z /dir/to/start/at/ -d start
+# here the param is directly passed
+# we can use the other params in the same manner
+
+# in practice, we'd create a short bash script, make basic calls available under single short & accepting start/stop/etc/..
